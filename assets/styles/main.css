@@ -1,0 +1,396 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes backgroundScroll {
+  0% {
+    transform: translate3d(0, 0, 1px);
+  }
+  100% {
+    transform: translate3d(-100px, 0, 1px);
+  }
+}
+:root {
+  --colour-01: #c66868;
+  --colour-02: #1fb17d;
+  --text-colour: #ea6060;
+  --color-03: #bb3655;
+  --background-colour: #fff6fd;
+  --max-width: 1200px;
+}
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* GENERAL */
+html,
+body {
+  height: 100%;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: var(--text-colour);
+  background: var(--background-colour);
+}
+h1,
+h2 {
+  font-family: Manrope, sans-serif;
+}
+h1 {
+  font-size: 60px;
+  margin-bottom: 0.2em;
+  margin-left: -0.05em;
+  margin-top: -0.14em;
+  opacity: 0;
+  animation: fadeIn 1s 0.5s forwards;
+}
+h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--color-03);
+}
+h2 span {
+  opacity: 0;
+  animation: fadeIn 0.5s 1.5s forwards;
+}
+h2 span:last-child {
+  animation-delay: 2.25s;
+}
+h3 {
+  font-size: 20px;
+  margin-bottom: 1em;
+}
+p {
+  line-height: 1.6;
+  margin-bottom: 1em;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+.button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5em 1em 0.6em;
+  background: var(--colour-02);
+  color: white;
+  font-family: Manrope, sans-serif;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+.skill {
+  font-family: "Courier New", Courier, monospace;
+}
+/* STRUCTURE */
+.background {
+  perspective: 1000px;
+  perspective-origin: 50% 70%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.6;
+}
+.background__top,
+.background__back,
+.background__bottom {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+.background__top:before,
+.background__back:before,
+.background__bottom:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--colour-02), var(--colour-02) 1px, transparent 1px, transparent 100px);
+  background-size: 100px;
+  will-change: transform;
+  transform: translateZ(1px);
+  animation: backgroundScroll 3s linear infinite;
+}
+.background__top {
+  transform-origin: 50% 0;
+  transform: translateZ(-580px) rotateX(90deg);
+}
+.background__bottom {
+  transform-origin: 50% 100%;
+  transform: translateZ(-580px) rotateX(-90deg);
+}
+.background__back {
+  transform: translateZ(-580px);
+  transform-style: preserve-3d;
+}
+.main {
+  position: relative;
+  padding: 80px 5% 120px;
+  min-height: 100%;
+}
+.main__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-width);
+}
+.title-card {
+  margin-bottom: 80px;
+}
+.title-card svg {
+  fill: var(--colour-01);
+}
+.column {
+  opacity: 0;
+  animation: fadeInUp 1s 3.7s forwards;
+}
+.column:first-child {
+  animation-delay: 3.5s;
+}
+.column:last-child {
+  animation-delay: 3.9s;
+}
+.column .links {
+  margin-top: auto;
+}
+.column h3 {
+  display: flex;
+  align-items: center;
+  color: var(--color-03);
+  min-height: 35px;
+}
+.column h3 svg {
+  margin-right: 10px;
+  fill: currentColor;
+}
+.links {
+  display: flex;
+  align-items: center;
+}
+.links a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+.links svg {
+  fill: var(--colour-02);
+}
+@media (max-width: 719px) {
+  .main {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .background__top {
+    transform: translateZ(-900px) rotateX(90deg);
+  }
+  .background__bottom {
+    transform: translateZ(-900px) rotateX(-90deg);
+  }
+  .background__back {
+    transform: translateZ(-900px);
+  }
+  .title-card br {
+    display: none;
+  }
+  .column {
+    margin-bottom: 60px;
+  }
+  .column:last-child {
+    margin-bottom: 0;
+  }
+  .column .links {
+    margin-top: 30px;
+  }
+}
+@media (min-width: 720px) {
+  h1 {
+    font-size: 100px;
+  }
+  h2 span {
+    display: block;
+  }
+  .button {
+    transition: background 0.3s;
+  }
+  .button:hover {
+    background: var(--color-03);
+  }
+  .title-card {
+    margin-bottom: 150px;
+  }
+  .columns {
+    display: flex;
+    margin-top: auto;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .column {
+    width: 33.33333%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .links a svg {
+    transition: fill 0.3s;
+  }
+  .links a:hover svg {
+    fill: var(--color-03);
+  }
+}
