@@ -292,10 +292,20 @@ p:last-child {
   max-width: var(--max-width);
 }
 .title-card {
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
-.title-card svg {
-  fill: var(--colour-01);
+.portrait-wrap {
+  width: 150px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 1s 3.5s forwards;
+}
+.portrait-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .column {
   opacity: 0;
@@ -345,8 +355,8 @@ p:last-child {
   .background__back {
     transform: translateZ(-900px);
   }
-  .title-card br {
-    display: none;
+  .portrait-wrap {
+    margin-top: 80px;
   }
   .column {
     margin-bottom: 60px;
@@ -373,6 +383,15 @@ p:last-child {
   }
   .title-card {
     margin-bottom: 150px;
+    display: flex;
+    align-items: start;
+  }
+  .portrait-wrap {
+    width: 178px;
+    margin-right: 20px;
+  }
+  .title-card__text {
+    order: 1;
   }
   .columns {
     display: flex;
